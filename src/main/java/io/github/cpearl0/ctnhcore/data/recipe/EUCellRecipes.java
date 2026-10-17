@@ -307,7 +307,8 @@ public class EUCellRecipes {
                     .inputFluids(STELLAR_ENERGY.getFluid(144))
                     .outputFluidsRanged(new FluidStack(STELLAR_ENERGY.getFluid(), 100),
                             UniformInt.of(144, 144 * (tier + 1)))
-                    .EUt(1920 * LV)
+                    // LV 是档位下标（值为 1），不是电压表；写成 1920 * LV 会让九档功率恒等于 EV 的 1920 EU/t
+                    .EUt(VA[tier])
                     .duration(2000)
                     .save(provider);
 
