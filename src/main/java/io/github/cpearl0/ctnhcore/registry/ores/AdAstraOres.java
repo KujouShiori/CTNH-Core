@@ -29,8 +29,9 @@ public class AdAstraOres {
                     .dimensions(MOON)
                     .layeredVeinGenerator(generator -> generator
                             .buildLayerPattern(pattern -> pattern
-                                    .layer(l -> l.weight(3).mat(GTMaterials.Bornite).size(2, 4))
-                                    .layer(l -> l.weight(2).mat(GTMaterials.Cooperite).size(1, 1))
+                                    // GTCEu 的 Cooperite 材质显示名就是 Sheldonite（见 FirstDegreeMaterials），
+                                    // 主力层原先写成 Bornite，导致矿脉名和内容对不上
+                                    .layer(l -> l.weight(3).mat(GTMaterials.Cooperite).size(2, 4))
                                     .layer(l -> l.weight(2).mat(PlatinumLineMaterials.PlatinumOre).size(1, 1))
                                     .layer(l -> l.weight(1).mat(PlatinumLineMaterials.PalladiumOre).size(1, 1))))
                     .surfaceIndicatorGenerator(indicator -> indicator

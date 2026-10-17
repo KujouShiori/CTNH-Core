@@ -51,7 +51,9 @@ public class GTMaterialAddon {
         Dubnium.addFlags(GENERATE_FINE_WIRE);
         Rhenium.setProperty(PropertyKey.INGOT, new IngotProperty());
         Rhenium.addFlags(GENERATE_PLATE);
-        Calcium.setProperty(PropertyKey.INGOT, new IngotProperty());
+        // 钙在本包里是粉尘 + 气相（气相供 锎+钙 -> 气奥 的聚变配方），没有液相；
+        // 若补 INGOT，GTCEu 会用主流体生成 solidify_calcium_to_ingot（MaterialRecipeHandler:340），
+        // 即气态钙凝固成锭，因此这里不加金属锭属性
         Gadolinium.setProperty(PropertyKey.DUST, new DustProperty());
         CTNHMaterials.addDust(Praseodymium);
         CTNHMaterials.addDust(Terbium);
